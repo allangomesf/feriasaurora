@@ -7,6 +7,7 @@ import BudgetTracker from "@/components/BudgetTracker";
 import Itinerary from "@/components/Itinerary";
 import Checklist from "@/components/Checklist";
 import HotelSuggestions from "@/components/HotelSuggestions";
+import RestaurantSuggestions from "@/components/RestaurantSuggestions";
 import TransportSuggestions from "@/components/TransportSuggestions";
 import TravelersProfile from "@/components/TravelersProfile";
 import TripSearchForm from "@/components/TripSearchForm";
@@ -59,6 +60,7 @@ export default function Home() {
           {isSearchActive ? (
             <>
               <HotelSuggestions />
+              <RestaurantSuggestions />
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <Itinerary />
