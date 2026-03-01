@@ -34,25 +34,25 @@ export default function BudgetTracker() {
     const totalBrl = totalLocal * (config.exchangeRateBrl || 0);
 
     return (
-        <div className="bg-white rounded-2xl shadow-sm border border-stone-200 flex flex-col h-[600px]">
-            <div className="p-6 border-b border-stone-100 flex items-center justify-between">
-                <h2 className="text-xl font-semibold text-stone-800 flex items-center gap-2">
+        <div className="bg-white rounded-2xl shadow-sm border border-slate-200 flex flex-col h-[600px]">
+            <div className="p-6 border-b border-slate-100 flex items-center justify-between">
+                <h2 className="text-xl font-semibold text-slate-800 flex items-center gap-2">
                     <Receipt className="w-5 h-5 text-amber-500" />
                     Controle de Gastos
                 </h2>
             </div>
 
-            <div className="flex-1 overflow-y-auto p-6 flex flex-col gap-4 bg-stone-50/50">
+            <div className="flex-1 overflow-y-auto p-6 flex flex-col gap-4 bg-slate-50/50">
                 <form onSubmit={handleAddExpense} className="flex gap-3 mb-4">
                     <input
                         type="text"
                         placeholder="Despesa (ex: Jantar, Museu)"
                         value={newTitle}
                         onChange={(e) => setNewTitle(e.target.value)}
-                        className="flex-1 bg-white border border-stone-200 rounded-xl px-4 py-2 text-sm outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-50 transition-all"
+                        className="flex-1 bg-white border border-slate-200 rounded-xl px-4 py-2 text-sm outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-50 transition-all"
                     />
                     <div className="relative w-32">
-                        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 text-sm font-medium">
+                        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm font-medium">
                             {config.currency}
                         </span>
                         <input
@@ -60,7 +60,7 @@ export default function BudgetTracker() {
                             placeholder="100"
                             value={newAmount}
                             onChange={(e) => setNewAmount(e.target.value)}
-                            className="w-full bg-white border border-stone-200 rounded-xl pl-12 pr-4 py-2 text-sm outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-50 transition-all font-medium"
+                            className="w-full bg-white border border-slate-200 rounded-xl pl-12 pr-4 py-2 text-sm outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-50 transition-all font-medium"
                         />
                     </div>
                     <button
@@ -78,7 +78,7 @@ export default function BudgetTracker() {
                             <div className="absolute left-0 top-0 bottom-0 w-1 bg-sky-400"></div>
                             <div className="flex flex-col">
                                 <span className="text-[10px] font-bold text-sky-600 uppercase tracking-wider mb-0.5">Transporte Principal</span>
-                                <span className="font-semibold text-stone-800">{config.mainTransport.title}</span>
+                                <span className="font-semibold text-slate-800">{config.mainTransport.title}</span>
                             </div>
                             <div className="flex items-center gap-4">
                                 <div className="flex flex-col items-end">
@@ -106,23 +106,23 @@ export default function BudgetTracker() {
                     {expenses.map((expense) => (
                         <div
                             key={expense.id}
-                            className="bg-white border border-stone-100 rounded-xl p-4 flex items-center justify-between sm:hover:shadow-md transition-shadow group"
+                            className="bg-white border border-slate-100 rounded-xl p-4 flex items-center justify-between sm:hover:shadow-md transition-shadow group"
                         >
-                            <span className="font-medium text-stone-700">{expense.title}</span>
+                            <span className="font-medium text-slate-700">{expense.title}</span>
                             <div className="flex items-center gap-4">
                                 <div className="flex flex-col items-end">
-                                    <span className="font-semibold text-stone-900">
+                                    <span className="font-semibold text-slate-900">
                                         {expense.amountLocal.toFixed(2)} {config.currency}
                                     </span>
                                     {config.exchangeRateBrl && (
-                                        <span className="text-xs text-stone-500 font-medium tracking-wide">
+                                        <span className="text-xs text-slate-500 font-medium tracking-wide">
                                             ~ R$ {(expense.amountLocal * config.exchangeRateBrl).toFixed(2)}
                                         </span>
                                     )}
                                 </div>
                                 <button
                                     onClick={() => removeExpense(expense.id)}
-                                    className="text-stone-300 hover:text-red-500 transition-colors opacity-0 group-hover:opacity-100"
+                                    className="text-slate-300 hover:text-red-500 transition-colors opacity-0 group-hover:opacity-100"
                                 >
                                     <Trash2 className="w-4 h-4" />
                                 </button>
@@ -130,21 +130,21 @@ export default function BudgetTracker() {
                         </div>
                     ))}
                     {expenses.length === 0 && !config.mainTransport && (
-                        <div className="text-center py-12 text-stone-400 text-sm border-2 border-dashed border-stone-200 rounded-2xl">
+                        <div className="text-center py-12 text-slate-400 text-sm border-2 border-dashed border-slate-200 rounded-2xl">
                             Nenhuma despesa registrada ainda. Comece a adicionar!
                         </div>
                     )}
                 </div>
             </div>
 
-            <div className="bg-stone-800 text-white p-6 rounded-b-2xl flex items-center justify-between">
-                <span className="text-stone-300 font-medium">Total de Despesas</span>
+            <div className="bg-slate-800 text-white p-6 rounded-b-2xl flex items-center justify-between">
+                <span className="text-slate-300 font-medium">Total de Despesas</span>
                 <div className="flex flex-col items-end">
                     <span className="text-2xl font-bold tracking-tight">
                         {totalLocal.toFixed(2)} {config.currency}
                     </span>
                     {config.exchangeRateBrl && (
-                        <span className="text-sm text-stone-400 mt-1">
+                        <span className="text-sm text-slate-400 mt-1">
                             R$ {totalBrl.toFixed(2)}
                         </span>
                     )}

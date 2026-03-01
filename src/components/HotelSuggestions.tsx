@@ -47,8 +47,8 @@ export default function HotelSuggestions() {
             type: isNatureLover ? "Eco Lodge" : "Hotel Design",
             description: isNatureLover ? "Sustentável, restaurante 100% plant-based, áreas verdes amplas." : "Arquitetura moderna, tecnologia no quarto, perto do centro.",
             pricePerNight: 150,
-            icon: <Trees className="w-5 h-5 text-emerald-500" />,
-            color: "bg-emerald-50"
+            icon: <Trees className="w-5 h-5 text-sky-500" />,
+            color: "bg-sky-50"
         },
         {
             id: "h4",
@@ -71,13 +71,13 @@ export default function HotelSuggestions() {
     ];
 
     return (
-        <div className="bg-white rounded-2xl shadow-sm border border-stone-200 p-6 flex flex-col">
+        <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 flex flex-col">
             <div className="flex items-center justify-between mb-6">
-                <h2 className="text-xl font-semibold text-stone-800 flex items-center gap-2">
+                <h2 className="text-xl font-semibold text-slate-800 flex items-center gap-2">
                     <Hotel className="w-5 h-5 text-indigo-600" />
                     Sugestões de Hotel
                 </h2>
-                <span className="text-sm font-medium text-stone-500 bg-stone-100 px-3 py-1 rounded-full">
+                <span className="text-sm font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full">
                     Cálculo para {days} noite{days > 1 ? "s" : ""}
                 </span>
             </div>
@@ -88,19 +88,19 @@ export default function HotelSuggestions() {
                     const bookingLink = `https://www.booking.com/searchresults.html?ss=${encodeURIComponent(hotel.name + ' ' + config.destination)}`;
 
                     return (
-                        <div key={hotel.id} className="border border-stone-100 rounded-xl p-4 flex flex-col group sm:hover:shadow-md transition-all sm:hover:border-indigo-200">
+                        <div key={hotel.id} className="border border-slate-100 rounded-xl p-4 flex flex-col group sm:hover:shadow-md transition-all sm:hover:border-indigo-200">
                             <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-3 ${hotel.color}`}>
                                 {hotel.icon}
                             </div>
 
-                            <h3 className="font-semibold text-stone-900 leading-snug">{hotel.name}</h3>
-                            <span className="text-xs font-bold text-stone-400 uppercase tracking-wider mt-1">{hotel.type}</span>
+                            <h3 className="font-semibold text-slate-900 leading-snug">{hotel.name}</h3>
+                            <span className="text-xs font-bold text-slate-400 uppercase tracking-wider mt-1">{hotel.type}</span>
 
-                            <p className="text-xs text-stone-500 mt-2 mb-4 flex-1">
+                            <p className="text-xs text-slate-500 mt-2 mb-4 flex-1">
                                 {hotel.description}
                             </p>
 
-                            <div className="flex flex-col gap-3 pt-4 border-t border-stone-100">
+                            <div className="flex flex-col gap-3 pt-4 border-t border-slate-100">
                                 <a
                                     href={bookingLink}
                                     target="_blank"
@@ -112,8 +112,8 @@ export default function HotelSuggestions() {
 
                                 <div className="flex items-center justify-between">
                                     <div className="flex flex-col">
-                                        <span className="font-bold text-lg text-stone-800 tracking-tight">
-                                            {totalLocal} <span className="text-xs font-normal text-stone-500">{config.currency}</span>
+                                        <span className="font-bold text-lg text-slate-800 tracking-tight">
+                                            {totalLocal} <span className="text-xs font-normal text-slate-500">{config.currency}</span>
                                         </span>
                                     </div>
 

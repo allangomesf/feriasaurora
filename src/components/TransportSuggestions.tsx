@@ -101,8 +101,8 @@ export default function TransportSuggestions() {
             type: "Terrestre (Próprio)",
             description: "Dirija seu próprio carro desde a origem. Custos estimados de rota e pedágio.",
             price: drivingCostEstimate,
-            icon: <CarFront className="w-5 h-5 text-stone-500" />,
-            color: "bg-stone-100",
+            icon: <CarFront className="w-5 h-5 text-slate-500" />,
+            color: "bg-slate-100",
             linkUrl: drivingUrl,
             linkLabel: "Rota (Maps)"
         }
@@ -141,9 +141,9 @@ export default function TransportSuggestions() {
     };
 
     return (
-        <div className="bg-white rounded-2xl shadow-sm border border-stone-200 p-6 flex flex-col h-full">
+        <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 flex flex-col h-full">
             <div className="flex items-center justify-between mb-6">
-                <h2 className="text-xl font-semibold text-stone-800 flex items-center gap-2">
+                <h2 className="text-xl font-semibold text-slate-800 flex items-center gap-2">
                     <PlaneTakeoff className="w-5 h-5 text-sky-600" />
                     Opções e Consultas de Transporte
                 </h2>
@@ -151,7 +151,7 @@ export default function TransportSuggestions() {
 
             <div className="flex flex-col gap-4 flex-1">
                 {customTransports.map((transport) => (
-                    <div key={transport.id} className="border border-stone-100 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center gap-4 group hover:shadow-md transition-all sm:hover:border-sky-200">
+                    <div key={transport.id} className="border border-slate-100 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center gap-4 group hover:shadow-md transition-all sm:hover:border-sky-200">
                         <div className="flex items-center gap-4 flex-1 min-w-0">
                             <div className={`w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center ${transport.color}`}>
                                 {transport.icon}
@@ -159,23 +159,23 @@ export default function TransportSuggestions() {
 
                             <div className="flex-1 min-w-0">
                                 <div className="flex items-center gap-2">
-                                    <h3 className="font-semibold text-stone-900 leading-snug">{transport.name}</h3>
-                                    <span className="text-[10px] font-bold text-stone-400 uppercase tracking-wider">{transport.type}</span>
+                                    <h3 className="font-semibold text-slate-900 leading-snug">{transport.name}</h3>
+                                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{transport.type}</span>
                                 </div>
-                                <p className="text-xs text-stone-500 mt-1 truncate max-w-full">
+                                <p className="text-xs text-slate-500 mt-1 truncate max-w-full">
                                     {transport.description}
                                 </p>
                             </div>
                         </div>
 
-                        <div className="flex items-center gap-3 sm:pl-4 sm:border-l border-stone-100 pt-3 sm:pt-0 border-t sm:border-t-0 mt-3 sm:mt-0 justify-between sm:justify-end">
+                        <div className="flex items-center gap-3 sm:pl-4 sm:border-l border-slate-100 pt-3 sm:pt-0 border-t sm:border-t-0 mt-3 sm:mt-0 justify-between sm:justify-end">
 
                             {transport.linkUrl && (
                                 <a
                                     href={transport.linkUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-xs font-semibold bg-stone-100 text-stone-600 px-3 py-2 rounded-lg flex items-center gap-1.5 hover:bg-stone-200 transition-colors whitespace-nowrap"
+                                    className="text-xs font-semibold bg-slate-100 text-slate-600 px-3 py-2 rounded-lg flex items-center gap-1.5 hover:bg-slate-200 transition-colors whitespace-nowrap"
                                 >
                                     {transport.linkLabel} <ExternalLink className="w-3 h-3" />
                                 </a>
@@ -184,16 +184,16 @@ export default function TransportSuggestions() {
                             {transport.price !== null ? (
                                 <div className="flex items-center gap-3">
                                     <div className="flex flex-col items-end">
-                                        <span className="font-bold text-lg text-stone-800 tracking-tight whitespace-nowrap">
-                                            {transport.price} <span className="text-xs font-normal text-stone-500">{config.currency}</span>
+                                        <span className="font-bold text-lg text-slate-800 tracking-tight whitespace-nowrap">
+                                            {transport.price} <span className="text-xs font-normal text-slate-500">{config.currency}</span>
                                         </span>
-                                        {transport.price === drivingCostEstimate && <span className="text-[9px] text-stone-400">Est. Combustível</span>}
+                                        {transport.price === drivingCostEstimate && <span className="text-[9px] text-slate-400">Est. Combustível</span>}
                                     </div>
 
                                     <button
                                         onClick={() => handleSelectMainTransport(transport)}
                                         className={`p-2 py-1.5 px-3 flex items-center gap-1.5 rounded-lg transition-colors flex-shrink-0 text-xs font-semibold ${config.mainTransport?.title === transport.name
-                                            ? "bg-emerald-500 text-white"
+                                            ? "bg-sky-500 text-white"
                                             : "bg-sky-50 text-sky-600 hover:bg-sky-600 hover:text-white"
                                             }`}
                                         title="Selecionar como Transporte Principal"
@@ -207,27 +207,27 @@ export default function TransportSuggestions() {
                                     {editingId === transport.id ? (
                                         <form onSubmit={(e) => handleSetPrice(transport.id, e)} className="flex items-center gap-2">
                                             <div className="relative w-28">
-                                                <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-stone-400 text-xs">{config.currency}</span>
+                                                <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs">{config.currency}</span>
                                                 <input
                                                     type="number"
                                                     placeholder="Valor..."
                                                     value={editingPrice}
                                                     onChange={(e) => setEditingPrice(e.target.value)}
-                                                    className="w-full pl-8 pr-2 py-1.5 bg-white rounded-lg border border-stone-200 text-xs outline-none focus:border-sky-400 font-medium"
+                                                    className="w-full pl-8 pr-2 py-1.5 bg-white rounded-lg border border-slate-200 text-xs outline-none focus:border-sky-400 font-medium"
                                                     autoFocus
                                                 />
                                             </div>
                                             <button type="submit" className="bg-sky-500 hover:bg-sky-600 text-white p-1.5 rounded-lg transition-colors shadow-sm">
                                                 <CheckCircle2 className="w-4 h-4" />
                                             </button>
-                                            <button type="button" onClick={() => setEditingId(null)} className="text-stone-400 hover:text-stone-600 text-[10px] font-medium px-1">
+                                            <button type="button" onClick={() => setEditingId(null)} className="text-slate-400 hover:text-slate-600 text-[10px] font-medium px-1">
                                                 Cancelar
                                             </button>
                                         </form>
                                     ) : (
                                         <button
                                             onClick={() => { setEditingId(transport.id); setEditingPrice(""); }}
-                                            className="text-xs font-semibold bg-stone-100 text-stone-600 px-3 py-1.5 rounded-lg flex items-center gap-1.5 hover:bg-stone-200 transition-colors whitespace-nowrap border border-stone-200"
+                                            className="text-xs font-semibold bg-slate-100 text-slate-600 px-3 py-1.5 rounded-lg flex items-center gap-1.5 hover:bg-slate-200 transition-colors whitespace-nowrap border border-slate-200"
                                         >
                                             <Plus className="w-3.5 h-3.5" /> Adicionar Valor Manual
                                         </button>

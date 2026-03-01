@@ -65,10 +65,10 @@ export default function Checklist() {
                         {item.done ? (
                             <CheckCircle2 className={`w-5 h-5 flex-shrink-0 mt-0.5 ${textColor}`} />
                         ) : (
-                            <Circle className="w-5 h-5 flex-shrink-0 mt-0.5 text-stone-300 group-hover:text-stone-400" />
+                            <Circle className="w-5 h-5 flex-shrink-0 mt-0.5 text-slate-300 group-hover:text-slate-400" />
                         )}
                         <span
-                            className={`text-sm ${item.done ? "line-through text-stone-400" : "text-stone-700 font-medium"
+                            className={`text-sm ${item.done ? "line-through text-slate-400" : "text-slate-700 font-medium"
                                 }`}
                         >
                             {item.text}
@@ -80,8 +80,8 @@ export default function Checklist() {
     );
 
     return (
-        <div className="bg-white rounded-2xl shadow-sm border border-stone-200 h-[600px] flex flex-col p-6 gap-6">
-            <h2 className="text-xl font-semibold text-stone-800 tracking-tight">
+        <div className="bg-white rounded-2xl shadow-sm border border-slate-200 h-[600px] flex flex-col p-6 gap-6">
+            <h2 className="text-xl font-semibold text-slate-800 tracking-tight">
                 Checklist Inteligente
             </h2>
             <div className="flex gap-6 flex-1 min-h-0">

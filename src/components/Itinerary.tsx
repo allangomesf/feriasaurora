@@ -138,7 +138,7 @@ export default function Itinerary() {
             case "travel":
                 return <MapPin className="w-4 h-4 text-blue-500" />;
             default:
-                return <Coffee className="w-4 h-4 text-stone-500" />;
+                return <Coffee className="w-4 h-4 text-slate-500" />;
         }
     };
 
@@ -153,21 +153,21 @@ export default function Itinerary() {
             case "travel":
                 return "bg-blue-50 border-blue-200 text-blue-900";
             default:
-                return "bg-stone-50 border-stone-200 text-stone-900";
+                return "bg-slate-50 border-slate-200 text-slate-900";
         }
     };
 
     return (
-        <div className="bg-white rounded-2xl shadow-sm border border-stone-200 h-[600px] flex flex-col overflow-hidden">
+        <div className="bg-white rounded-2xl shadow-sm border border-slate-200 h-[600px] flex flex-col overflow-hidden">
             {/* Header Tabs */}
-            <div className="flex border-b border-stone-100 overflow-x-auto hide-scrollbar">
+            <div className="flex border-b border-slate-100 overflow-x-auto hide-scrollbar">
                 {dynamicItinerary.map((day, idx) => (
                     <button
                         key={idx}
                         onClick={() => setActiveDay(idx)}
-                        className={`px-6 py-4 font-medium transition-colors whitespace-nowrap min-w-[120px] shrink-0 border-r border-stone-100 last:border-r-0 ${activeDay === idx
-                            ? "text-emerald-600 border-b-2 border-emerald-500 bg-emerald-50/30"
-                            : "text-stone-500 hover:text-stone-700 hover:bg-stone-50"
+                        className={`px-6 py-4 font-medium transition-colors whitespace-nowrap min-w-[120px] shrink-0 border-r border-slate-100 last:border-r-0 ${activeDay === idx
+                            ? "text-sky-600 border-b-2 border-sky-500 bg-sky-50/30"
+                            : "text-slate-500 hover:text-slate-700 hover:bg-slate-50"
                             }`}
                     >
                         <div className="text-[11px] font-bold uppercase tracking-wider mb-1 opacity-70">{day.date}</div>
@@ -177,13 +177,13 @@ export default function Itinerary() {
             </div>
 
             {/* Timeline */}
-            <div className="flex-1 overflow-y-auto p-6 bg-stone-50/30">
-                <div className="relative border-l border-stone-200 ml-3 pl-8 py-2 space-y-10">
+            <div className="flex-1 overflow-y-auto p-6 bg-slate-50/30">
+                <div className="relative border-l border-slate-200 ml-3 pl-8 py-2 space-y-10">
                     {dynamicItinerary[activeDay]?.items.map((item, idx) => (
                         <div key={idx} className="relative group">
                             {/* Timeline dot */}
-                            <div className="absolute -left-[41px] bg-white border-2 border-stone-200 w-5 h-5 rounded-full flex items-center justify-center top-1 shadow-sm group-hover:border-emerald-400 group-hover:scale-110 transition-all">
-                                <div className="w-1.5 h-1.5 bg-stone-300 rounded-full group-hover:bg-emerald-400"></div>
+                            <div className="absolute -left-[41px] bg-white border-2 border-slate-200 w-5 h-5 rounded-full flex items-center justify-center top-1 shadow-sm group-hover:border-sky-400 group-hover:scale-110 transition-all">
+                                <div className="w-1.5 h-1.5 bg-slate-300 rounded-full group-hover:bg-sky-400"></div>
                             </div>
 
                             {/* Card */}
@@ -202,7 +202,7 @@ export default function Itinerary() {
                                         href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(config.destination + ' ' + item.title)}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="text-[10px] font-semibold text-stone-500 bg-white/60 hover:bg-white hover:text-emerald-600 px-2 py-1 rounded transition-colors flex items-center gap-1 shrink-0"
+                                        className="text-[10px] font-semibold text-slate-500 bg-white/60 hover:bg-white hover:text-sky-600 px-2 py-1 rounded transition-colors flex items-center gap-1 shrink-0"
                                         title="Ver rotas no Google Maps"
                                     >
                                         Ver no Mapa <ExternalLink className="w-2.5 h-2.5" />
@@ -214,33 +214,33 @@ export default function Itinerary() {
                             </div>
 
                             {idx < (dynamicItinerary[activeDay]?.items.length || 0) - 1 && (
-                                <div className="absolute -left-[32px] top-12 bottom-[-40px] w-0.5 pointer-events-none group-hover:bg-emerald-200 transition-colors"></div>
+                                <div className="absolute -left-[32px] top-12 bottom-[-40px] w-0.5 pointer-events-none group-hover:bg-sky-200 transition-colors"></div>
                             )}
                         </div>
                     ))}
                 </div>
 
                 {/* Local App Transit Estimate Add Button */}
-                <div className="mt-8 border-t border-stone-200 pt-6">
-                    <div className="bg-white border border-stone-200 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm">
+                <div className="mt-8 border-t border-slate-200 pt-6">
+                    <div className="bg-white border border-slate-200 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm">
                         <div className="flex items-start sm:items-center gap-3">
                             <div className="bg-amber-100/50 p-2.5 rounded-lg text-amber-600">
                                 <CarTaxiFront className="w-5 h-5" />
                             </div>
                             <div>
-                                <h4 className="font-semibold text-stone-800 text-sm">Deslocamentos Locais (Uber/Táxi)</h4>
-                                <p className="text-xs text-stone-500 mt-0.5">
+                                <h4 className="font-semibold text-slate-800 text-sm">Deslocamentos Locais (Uber/Táxi)</h4>
+                                <p className="text-xs text-slate-500 mt-0.5">
                                     Adicione uma estimativa diária baseada nos passeios sugeridos neste dia.
                                 </p>
                             </div>
                         </div>
 
-                        <div className="flex items-center gap-3 sm:border-l border-stone-100 sm:pl-4 pt-3 sm:pt-0 border-t sm:border-t-0 justify-between sm:justify-end">
+                        <div className="flex items-center gap-3 sm:border-l border-slate-100 sm:pl-4 pt-3 sm:pt-0 border-t sm:border-t-0 justify-between sm:justify-end">
                             <div className="flex flex-col items-end">
-                                <span className="font-bold text-stone-800">
-                                    45 <span className="text-[10px] font-normal text-stone-500">{config.currency}</span>
+                                <span className="font-bold text-slate-800">
+                                    45 <span className="text-[10px] font-normal text-slate-500">{config.currency}</span>
                                 </span>
-                                <span className="text-[9px] text-stone-400 font-medium">Est. {dynamicItinerary[activeDay]?.date}</span>
+                                <span className="text-[9px] text-slate-400 font-medium">Est. {dynamicItinerary[activeDay]?.date}</span>
                             </div>
 
                             <button
